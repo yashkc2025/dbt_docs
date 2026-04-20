@@ -1,7 +1,5 @@
 **Sources** are your bridge between the messy, raw reality of your data warehouse and the clean, modeled world of your analytics. Think of them as a "contract" that defines where your raw data lives before dbt ever touches it.
 
-Here is a deep dive into how to master them.
-
 ## 1. Defining Raw Tables (The `sources.yml`)
 
 Instead of hardcoding table names like `raw_data.public.users` directly into your SQL, you define them in a `.yml` file (usually named `models/sources.yml` or similar).
