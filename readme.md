@@ -110,7 +110,7 @@ Data teams used to struggle with "final_v2_updated_FIXED.sql" files. dbt forces 
 
 In a complex warehouse, it’s hard to know which table feeds into which dashboard. dbt automatically generates a **Directed Acyclic Graph (DAG)**, a visual map of your data’s lineage.
 
-## The Pros: Why People Love It
+## The Pros
 
 | Feature | Why it matters |
 | :--- | :--- |
@@ -129,3 +129,17 @@ While dbt is the industry standard right now, it isn't a silver bullet.
 * **State Management:** dbt is "stateless." It doesn't inherently know what happened in the last run unless you use specific features like incremental models, which can be tricky to set up correctly.
 * **Warehouse Costs:** Since dbt does all the work *inside* your warehouse, every run costs compute credits. If you have inefficient SQL or run your models too frequently, your Snowflake or BigQuery bill can skyrocket.
 * **SQL Limitations:** Even though dbt now supports Python models, it is still fundamentally built for set-based logic. If you need complex row-by-row processing or heavy machine learning, dbt might feel restrictive.
+
+## Why dbt with BigQuery
+
+* Works natively with SQL → perfect match for BigQuery (no extra engines needed)
+* Supports incremental queries which reduces cost
+* Use ref() instead of hardcoding table names in BigQuery
+* dbt automatically resolves the actual table name at runtime
+* Keeps your BigQuery transformations organized (stg → int → fct instead of random queries)
+* Automatically manages dependencies (runs queries in the right order)
+* Reduces BigQuery cost using incremental models (process only new data)
+* Gives lineage (see how each table in BigQuery is built step-by-step)
+* Centralizes logic → no duplicate SQL scattered across dashboards/tools
+* Makes pipelines reproducible (same result every run, no manual execution)
+* Integrates with Git → safer changes and team collaboration
