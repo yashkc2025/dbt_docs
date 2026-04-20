@@ -1,10 +1,10 @@
-## 🛠️ The Philosophy: "Test-Driven Data Engineering"
+## The Philosophy: "Test-Driven Data Engineering"
 
 For an engineer, a test is a **contract**. When you define a test in a `schema.yml`, you are asserting that the data must meet specific criteria before it hits your BI tool or ML model.
 
 dbt tests are essentially **SQL queries** that return the "failing" rows. If the query returns **zero rows**, the test passes. If it returns **one or more rows**, the test fails.
 
-## 🏗️ The Schema.yml: The Control Center
+## The Schema.yml: The Control Center
 
 The `schema.yml` file is where you define your models and their associated constraints. It lives in your `/models` folder and serves as both documentation and configuration.
 
